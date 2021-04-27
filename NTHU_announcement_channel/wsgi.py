@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'NTHU_announcement_channel.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "NTHU_announcement_channel.settings")
 
 application = get_wsgi_application()

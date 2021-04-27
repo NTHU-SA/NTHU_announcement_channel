@@ -7,22 +7,40 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='News',
+            name="News",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('school', models.CharField(max_length=50, verbose_name='學校')),
-                ('dep', models.CharField(blank=True, max_length=30, null=True, verbose_name='系所')),
-                ('title', models.CharField(max_length=200, verbose_name='標題')),
-                ('category', models.CharField(max_length=50)),
-                ('url', models.URLField(verbose_name='網址')),
-                ('published', models.BooleanField(default=False, verbose_name='是否寄送過')),
-                ('created_at', models.DateTimeField(auto_now_add=True, verbose_name='建立時間')),
-                ('updated_at', models.DateTimeField(auto_now=True, verbose_name='建立時間')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("school", models.CharField(max_length=50, verbose_name="學校")),
+                (
+                    "dep",
+                    models.CharField(
+                        blank=True, max_length=30, null=True, verbose_name="系所"
+                    ),
+                ),
+                ("title", models.CharField(max_length=200, verbose_name="標題")),
+                ("category", models.CharField(max_length=50)),
+                ("url", models.URLField(verbose_name="網址")),
+                ("published", models.BooleanField(default=False, verbose_name="是否寄送過")),
+                (
+                    "created_at",
+                    models.DateTimeField(auto_now_add=True, verbose_name="建立時間"),
+                ),
+                (
+                    "updated_at",
+                    models.DateTimeField(auto_now=True, verbose_name="建立時間"),
+                ),
             ],
         ),
     ]

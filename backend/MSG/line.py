@@ -4,16 +4,17 @@ import requests
 def send_msg(office, title, link):
     # token depends on each user, should get from db
     # since db not implement, token cannot be init
-    token = ''
+    token = ""
     msg = f"{office}公告：\n{title}\n{link}"
 
     headers = {
         "Authorization": "Bearer " + token,
-        "Content-Type": "application/x-www-form-urlencoded"
+        "Content-Type": "application/x-www-form-urlencoded",
     }
-    payload = {'message': msg}
-    r = requests.post("https://notify-api.line.me/api/notify", headers=headers,
-                      params=payload)
+    payload = {"message": msg}
+    r = requests.post(
+        "https://notify-api.line.me/api/notify", headers=headers, params=payload
+    )
     return r.status_code
 
 

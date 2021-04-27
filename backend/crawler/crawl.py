@@ -26,15 +26,13 @@ def nthu_crawler(url):
 def NTHU_CS(office, ta_link):
     result = nthu_crawler(ta_link)
     for title, url in result:
-        News.objects.add(school="NTHU", dep="CS",
-                         category=office, title=title, url=url)
+        News.objects.add(school="NTHU", dep="CS", category=office, title=title, url=url)
 
 
 def NTHU_EE(office, ta_link):
     result = nthu_crawler(ta_link)
     for title, url in result:
-        News.objects.add(school="NTHU", dep="EE",
-                         category=office, title=title, url=url)
+        News.objects.add(school="NTHU", dep="EE", category=office, title=title, url=url)
 
 
 def NTHU_IPTH(office, ta_link):

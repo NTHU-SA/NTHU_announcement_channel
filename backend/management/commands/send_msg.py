@@ -1,11 +1,13 @@
+from time import sleep
+
 from django.core.management.base import BaseCommand, CommandError
+
 from backend.models import News
 from backend.MSG import line, tg
-from time import sleep
 
 
 class Command(BaseCommand):
-    help = 'Send message which is not published.'
+    help = "Send message which is not published."
 
     def handle(self, *args, **options):
         """ Not complete!!! """

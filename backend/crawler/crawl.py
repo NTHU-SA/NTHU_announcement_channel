@@ -1,110 +1,128 @@
 import requests
 from bs4 import BeautifulSoup
+
 from backend.models import News
 
 
-def NTHU_CS(office, ta_link):
-    r = requests.get(ta_link)
-    r.encoding = 'utf-8'
-    soup = BeautifulSoup(r.text, 'lxml')
-    tables = soup.find_all(class_="mbox")
+def nthu_crawler(url):
+    r = requests.get(url)
+    r.encoding = "utf-8"
+    soup = BeautifulSoup(r.text, "lxml")
+    result = []
 
-    for announce in tables:
+    for announce in soup.find_all(class_="mtitle"):
         try:
-            title = announce.find(class_='mtitle').a.string
-            title = str(title).strip()
-            url = announce.find(class_='mtitle').a.get('href')
-            data = announce.find(class_='mdate before')
-            if data is not None:
-                data = data.string.split()[0]
-            print(title)
-            News.objects.add(school='NTHU', dep='CS', category=office, title=title, url=url)
+            title = announce.find("a").text.strip()
+            url = announce.find("a").get("href")
+            if title is not None and url is not None:
+                result.append([title, url])
         except:
             pass
+    for i in result:
+        print(i)
+    return result
+
+
+def NTHU_CS(office, ta_link):
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(school="NTHU", dep="CS",
+                         category=office, title=title, url=url)
 
 
 def NTHU_EE(office, ta_link):
-    r = requests.get(ta_link)
-    r.encoding = 'utf-8'
-    soup = BeautifulSoup(r.text, 'lxml')
-    tables = soup.find_all(class_="mbox")
-
-    for announce in tables:
-        try:
-            title = announce.find(class_='mtitle').a.string
-            title = str(title).strip()
-            url = announce.find(class_='mtitle').a.get('href')
-            data = announce.find(class_='mdate before')
-            if data is not None:
-                data = data.string.split()[1]
-            print(title)
-            News.objects.add(school='NTHU', dep='EE', category=office, title=title, url=url)
-        except:
-            pass
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(school="NTHU", dep="EE",
+                         category=office, title=title, url=url)
 
 
 def NTHU_IPTH(office, ta_link):
-    r = requests.get(ta_link)
-    r.encoding = 'utf-8'
-    soup = BeautifulSoup(r.text, 'lxml')
-    tables = soup.find_all(class_="mc")
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(
+            school="NTHU", dep="IPTH", category=office, title=title, url=url
+        )
 
-    for announce in tables:
-        try:
-            title = announce.find(class_='ptname').a.string
-            title = str(title).strip()
-            url = announce.find(class_='ptname').a.get('href')
-            data = announce.find(class_='date')
-            if data is not None:
-                data = data.string.split()[1]
-            print(title)
-            News.objects.add(school='NTHU', dep='IPTH', category=office, title=title, url=url)
-        except:
-            pass
+
+def NTHU_OSA(office, ta_link):
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(
+            school="NTHU", dep="OSA", category=office, title=title, url=url
+        )
+
+
+def NTHU_OAA(office, ta_link):
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(
+            school="NTHU", dep="OAA", category=office, title=title, url=url
+        )
+
+
+def NTHU_DSH(office, ta_link):
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(
+            school="NTHU", dep="DSH", category=office, title=title, url=url
+        )
+
+
+def NTHU_PEO(office, ta_link):
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(
+            school="NTHU", dep="PEO", category=office, title=title, url=url
+        )
 
 
 def NTHU_SS(office, ta_link):
     r = requests.get(ta_link)
-    r.encoding = 'utf-8'
-    soup = BeautifulSoup(r.text, 'lxml')
+    r.encoding = "utf-8"
+    soup = BeautifulSoup(r.text, "lxml")
     tables = soup.find_all(class_="mc")
 
     for announce in tables:
         try:
-            title = announce.find(class_='ptname').a.string
+            title = announce.find(class_="ptname").a.string
             title = str(title).strip()
-            url = announce.find(class_='ptname').a.get('href')
-            data = announce.find(class_='date float-right')
+            url = announce.find(class_="ptname").a.get("href")
+            data = announce.find(class_="date float-right")
             if data is not None:
                 data = data.string.split()[1]
             print(title)
-            News.objects.add(school='NTHU', dep='SS', category=office, title=title, url=url)
+            News.objects.add(
+                school="NTHU", dep="SS", category=office, title=title, url=url
+            )
         except:
             pass
 
 
 def NCTU_CS(office, ta_link):
     r = requests.get(ta_link)
-    r.encoding = 'utf-8'
-    soup = BeautifulSoup(r.text, 'lxml')
+    r.encoding = "utf-8"
+    soup = BeautifulSoup(r.text, "lxml")
     tables = soup.find_all(class_="announcement-item")
     for announce in tables:
         try:
             title = str(announce.find_all("a")[0].string).strip()
             title = str(title).strip()
-            url = announce.find_all("a")[0]['href']
+            url = announce.find_all("a")[0]["href"]
             data = announce.find_all("span")
             data = str(data).split("\n")[-2].split()[0]
             print(title)
-            News.objects.add(school='NCTU', dep='CS', category=office, title=title, url=url)
+            News.objects.add(
+                school="NCTU", dep="CS", category=office, title=title, url=url
+            )
         except:
             pass
 
 
 def NCTU_EE(office, ta_link):
     r = requests.get(ta_link)
-    r.encoding = 'utf-8'
-    soup = BeautifulSoup(r.text, 'lxml')
+    r.encoding = "utf-8"
+    soup = BeautifulSoup(r.text, "lxml")
     tables = soup.find_all(class_="i-annc__title")
     datas = soup.find_all(class_="i-annc__postdate-content")
     for i in range(len(tables)):
@@ -116,7 +134,8 @@ def NCTU_EE(office, ta_link):
             url = "https://www.dece.nctu.edu.tw/"
             url += str(announce.get("href"))
             data = str(data).split()[-1][:-7]
-            News.objects.add(school='NCTU', dep='EE', category=office,
-                             title=title, url=url)
+            News.objects.add(
+                school="NCTU", dep="EE", category=office, title=title, url=url
+            )
         except:
             pass

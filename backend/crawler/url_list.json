@@ -29,9 +29,10 @@
       "IPTH": {
         "abbr": "學院",
         "url": {
-          "班內": "http://ipth.web.nthu.edu.tw/files/40-2032-6791-1.php?Lang=zh-tw",
-          "招生": "http://ipth.web.nthu.edu.tw/files/40-2032-6784-1.php?Lang=zh-tw",
-          "校外活動": "http://ipth.web.nthu.edu.tw/files/40-2032-6785-1.php?Lang=zh-tw"
+          "班內": "http://ipth.site.nthu.edu.tw/p/403-1462-6791-1.php",
+          "招生": "http://ipth.site.nthu.edu.tw/p/403-1462-6784-1.php",
+          "校外活動": "http://ipth.site.nthu.edu.tw/p/403-1462-6785-1.php",
+          "多專長": "http://ipth.site.nthu.edu.tw/p/403-1462-7260-1.php"
         }
       },
       "SS": {
@@ -42,8 +43,37 @@
           "徵才": "http://dpe.web.nthu.edu.tw/files/40-2006-4-1.php?Lang=zh-tw",
           "工讀": "http://dpe.web.nthu.edu.tw/files/40-2006-20-1.php?Lang=zh-tw"
         }
+      },
+      "OSA": {
+        "abbr": "學務處",
+        "url": {
+          "最新消息": "https://student.site.nthu.edu.tw/p/403-1509-209-1.php"
+        }
+      },
+      "OAA": {
+        "abbr": "教務處",
+        "url": {
+          "新冠肺炎": "http://academic.site.nthu.edu.tw/p/403-1007-8253-1.php",
+          "最新消息": "http://academic.site.nthu.edu.tw/p/403-1007-1504-1.php"
+        }
+      },
+      "DSH": {
+        "abbr": "住宿組",
+        "url": {
+          "公告": "https://sthousing.site.nthu.edu.tw/p/403-1254-1538-1.php",
+          "申請": "https://sthousing.site.nthu.edu.tw/p/403-1254-8956-1.php",
+          "宣導": "https://sthousing.site.nthu.edu.tw/p/403-1254-8958-1.php",
+          "活動": "https://sthousing.site.nthu.edu.tw/p/403-1254-8957-1.php",
+          "其他": "https://sthousing.site.nthu.edu.tw/p/403-1254-1542-1.php"
+        }
+      },
+      "PEO": {
+        "abbr": "體育室",
+        "url": {
+          "最新消息": "http://nthupeo.site.nthu.edu.tw/p/403-1265-11-1.php"
+        }
       }
-    }
+      }
   },
   "NCTU": {
     "abbr": "交大",

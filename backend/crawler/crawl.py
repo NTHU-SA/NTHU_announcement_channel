@@ -75,6 +75,22 @@ def NTHU_PEO(office, ta_link):
         )
 
 
+def NTHU_OGA(office, ta_link):
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(
+            school="NTHU", dep="PEO", category=office, title=title, url=url
+        )
+
+
+def NTHU_CCC(office, ta_link):
+    result = nthu_crawler(ta_link)
+    for title, url in result:
+        News.objects.add(
+            school="NTHU", dep="PEO", category=office, title=title, url=url
+        )
+
+
 def NTHU_SS(office, ta_link):
     r = requests.get(ta_link)
     r.encoding = "utf-8"

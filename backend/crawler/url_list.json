@@ -72,8 +72,25 @@
         "url": {
           "最新消息": "http://nthupeo.site.nthu.edu.tw/p/403-1265-11-1.php"
         }
+      },
+      "OGA": {
+        "abbr": "總務處",
+        "url": {
+          "一般": "http://general.site.nthu.edu.tw/p/403-1004-24-1.php",
+          "經管組 餐廳": "http://ddfm.site.nthu.edu.tw/p/403-1494-8304-1.php",
+          "營繕組": "http://construc.site.nthu.edu.tw/p/403-1167-992-1.php",
+          "駐警隊": "http://guard.site.nthu.edu.tw/p/403-1168-51-1.php",
+          "出納組": "https://cashier.site.nthu.edu.tw/p/403-1166-47-1.php",
+          "事務組": "https://affairs.site.nthu.edu.tw/p/403-1165-127-1.php"
+        }
+      },
+      "CCC": {
+        "abbr": "計中",
+        "url": {
+          "最新消息": "https://ccc.site.nthu.edu.tw/p/403-1285-237-1.php"
+        }
       }
-      }
+    }
   },
   "NCTU": {
     "abbr": "交大",

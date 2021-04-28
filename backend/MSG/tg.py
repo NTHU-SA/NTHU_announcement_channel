@@ -11,6 +11,9 @@ def send_msg(office, title, link):
     bot = telepot.Bot(TOKEN)
     log_msg = f"{office}, title： {title}"
     bot.sendMessage(
-        TG_CHAT_ID, f"{office}公告：\n[{title}]({link})\n", parse_mode="Markdown"
+        TG_CHAT_ID,
+        f"{office}公告：\n[{title}]({link})\n",
+        parse_mode="Markdown",
+        disable_web_page_preview=True,
     )
     logging.info(f"Telegram - office: {log_msg}")

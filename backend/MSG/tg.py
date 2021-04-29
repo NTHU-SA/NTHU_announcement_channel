@@ -12,7 +12,7 @@ def send_msg(office, title, link):
     log_msg = f"{office}, title： {title}"
     bot.sendMessage(
         TG_CHAT_ID,
-        f"{office}公告：\n[{title}]({link})\n",
+        f"{office}：\n[{title}]({link})\n",
         parse_mode="Markdown",
         disable_web_page_preview=True,
     )

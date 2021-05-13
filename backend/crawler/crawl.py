@@ -79,7 +79,7 @@ def NTHU_OGA(office, ta_link):
     result = nthu_crawler(ta_link)
     for title, url in result:
         News.objects.add(
-            school="NTHU", dep="PEO", category=office, title=title, url=url
+            school="NTHU", dep="OGA", category=office, title=title, url=url
         )
 
 
@@ -87,7 +87,7 @@ def NTHU_CCC(office, ta_link):
     result = nthu_crawler(ta_link)
     for title, url in result:
         News.objects.add(
-            school="NTHU", dep="PEO", category=office, title=title, url=url
+            school="NTHU", dep="CCC", category=office, title=title, url=url
         )
 
 

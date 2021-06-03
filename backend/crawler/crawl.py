@@ -1,3 +1,5 @@
+import urllib.parse
+
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,9 +15,11 @@ def nthu_crawler(url):
     for announce in soup.find_all(class_="mtitle"):
         try:
             title = announce.find("a").text.strip()
-            url = announce.find("a").get("href")
-            if title is not None and url is not None:
-                result.append([title, url])
+            post_url = announce.find("a").get("href")
+            if title is not None and post_url is not None:
+                if "http" not in url:
+                    post_url = urllib.parse.urljoin(url, post_url)
+                result.append([title, post_url])
         except:
             pass
     for i in result:

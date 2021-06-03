@@ -1,3 +1,5 @@
+from urllib.parse import urlparse
+
 from django.db import models
 
 
@@ -7,7 +9,7 @@ class NewsManager(models.Manager):
         """Add the record to the DB"""
 
         "Check if the new exist in the DB"
-        if News.objects.filter(dep=dep, url=url).exists():
+        if News.objects.filter(dep=dep, url__contains=urlparse(url).path).exists():
             return False
         else:
             News.objects.create(

@@ -1,14 +1,8 @@
 NTHU Announcement Channel
 ===
 
-**Warning !** This is a Beta Version
-
 此專案使用 Django 這個網頁框架來維護
 
-## Issue
-
-- some crawlers has problems.
-  
 ## 環境建置
 
 如果你對 Django 一竅不通，可以按照此操作完成環境建置。

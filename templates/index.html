@@ -1,17 +1,52 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset='utf-8'>
-        <meta name=viewport content="width=device-width,initial-scale=1">
-        <title>NTHU Announcement</title>
-    </head>
-    <body>
-        <form method>
-            <input type="text" placeholder="Search...">
-            <div id="result"></div>
-        </form>
-        <ul>
-            <li><a href="{% url 'json' %}">JSON</a></li>
-        </ul>
-    </body>
+<head>
+    <meta charset='utf-8'>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>NTHU Announcement</title>
+</head>
+<body>
+<h1>清大公告系統</h1>
+<ul>
+    <li><a href="{% url 'json' %}">瀏覽 JSON</a></li>
+    <li><a href="https://t.me/nthu_announcement" target="_blank" rel="noopener">Telegram 公告頻道</a></li>
+    <li><a href="https://github.com/NTHU-SA/NTHU_announcement_channel" target="_blank" rel="noopener">專案原始碼</a></li>
+</ul>
+<input id="search" type="text" placeholder="Search...">
+<button id="submit_search">搜尋</button>
+<div id="result"></div>
+</body>
+<script>
+    function search() {
+        let keyword = document.getElementById("search").value.trim();
+        fetch('/search', {
+            method: 'POST',
+            body: JSON.stringify({'keyword': keyword}),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (myJson) {
+                console.log(myJson.result);
+                let result = document.getElementById("result");
+                var content = "<ol>";
+                for (var i in myJson.result) {
+                    content += `<li><a href='${myJson.result[i].url}' target="_blank" rel="noopener">${myJson.result[i].title}</a></li>`;
+                }
+                ;
+                content += "</ol>";
+                result.innerHTML = content;
+            });
+    }
+
+    document.getElementById("submit_search").onclick = search;
+    document.getElementById("search").addEventListener("keyup", (event) => {
+        if (event.keyCode === 13) {
+            search();
+        }
+    });
+</script>
 </html>

@@ -4,5 +4,6 @@ from backend import views
 
 urlpatterns = [
     url("^$", views.index),
-    url("json", views.json_view, name="json")
+    url("search", views.search),
+    url("json", views.json_view, name="json"),
 ]

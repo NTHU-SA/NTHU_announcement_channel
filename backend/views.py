@@ -7,6 +7,10 @@ from .models import News
 
 
 def index(request):
+    return render(request, "index.html", locals())
+
+
+def json_view(request):
     resp = []
     for n in News.objects.all():
         resp.append(

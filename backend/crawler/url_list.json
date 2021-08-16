@@ -47,7 +47,9 @@
       "OSA": {
         "abbr": "學務處",
         "url": {
-          "最新消息": "https://student.site.nthu.edu.tw/p/403-1509-209-1.php"
+          "最新消息": "https://student.site.nthu.edu.tw/p/403-1509-209-1.php",
+          "諮商中心": "http://counsel.site.nthu.edu.tw/p/403-1250-492-1.php",
+          "諮商中心 心窩報報": "http://counsel.site.nthu.edu.tw/p/407-1250-766-1.php"
         }
       },
       "OAA": {
@@ -88,6 +90,12 @@
         "abbr": "計中",
         "url": {
           "最新消息": "https://ccc.site.nthu.edu.tw/p/403-1285-237-1.php"
+        }
+      },
+      "LANGUAGE": {
+        "abbr": "語文中心",
+        "url": {
+          "最新消息": "http://language.site.nthu.edu.tw/p/403-1212-6822.php"
         }
       }
     }
